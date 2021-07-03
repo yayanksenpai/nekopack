@@ -7,9 +7,10 @@ WORKDIR /root/userbot
 
 # Install requirements
 RUN pip3 install -U -r requirements.txt
-RUN apk update && apk add --no-cache wget nginx
+RUN apk update && apk add --no-cache wget nginx nodejs npm
+RUN npm install http-server -g
 RUN wget
 
 ENV PATH="/home/userbot/bin:$PATH"
 
-CMD ["bash","start.sh"]
+CMD ["bash", "start.sh"]
